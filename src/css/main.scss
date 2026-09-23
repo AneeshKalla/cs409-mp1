@@ -1,1 +1,267 @@
-/* Your SCSS here. */
+html {
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+body {
+    margin: 0;
+    color: #3e2723;
+    background-color: #e8eddf;
+}
+
+main > section {
+    padding: 3rem 0;
+    background-color: #e8eddf;
+
+    &:nth-child(even) {
+        background-color: #faf5ec;
+    }
+
+    > h2 {
+        margin-top: 0;
+    }
+}
+
+main > section > p {
+    width: calc(100% * 2 / 3);
+    margin: 1rem auto;
+    line-height: 1.6;
+}
+
+.introduction > p {
+    font-family: Georgia, serif;
+    font-size: clamp(1.2rem, 1.5vw, 1.6rem);
+    line-height: 1.8;
+    text-align: center;
+}
+
+section[aria-labelledby="picking"] > p {
+    text-align: center;
+}
+
+header {
+    padding: 2rem 1rem;
+    background: #3e2723;
+    color: #fff8ed;
+    text-align: center;
+
+    h1 {
+        margin: 0;
+    }
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 1.5rem;
+    padding: 2rem 1rem;
+    font-size: 1.25rem;
+    background: #f4ead8;
+    color: #3e2723;
+    transition: padding 0.2s ease, font-size 0.2s ease;
+
+    &.compact {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+    a {
+        color: inherit;
+        text-underline-offset: 0.25rem;
+
+        &:hover,
+        &:focus-visible {
+            color: #79451f;
+        }
+
+        &[aria-current="location"] {
+            color: #79451f;
+            text-decoration-thickness: 3px;
+        }
+    }
+}
+
+.carousel {
+    position: relative;
+    max-width: 900px;
+    margin: 1.5rem auto;
+
+    img {
+        width: 100%;
+        aspect-ratio: 3 / 2;
+        object-fit: cover;
+    }
+
+    button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        border: 0;
+        padding: 0.75rem 1rem;
+        background: #f4ead8;
+        color: #3e2723;
+        font-size: 1.5rem;
+        cursor: pointer;
+
+        &:hover {
+            background: #e4d1ae;
+        }
+    }
+
+    .previous { left: 0.5rem; }
+    .next { right: 0.5rem; }
+
+    .slide-count {
+        position: absolute;
+        bottom: 0.75rem;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0;
+        padding: 0.25rem 0.75rem;
+        background: #f4ead8;
+        color: #3e2723;
+    }
+}
+
+.harvest-video {
+    display: block;
+    width: calc(100% * 2 / 3);
+    margin: 1.5rem auto;
+}
+
+.text-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    width: calc(100% * 2 / 3);
+    margin: 0 auto;
+
+    p {
+        line-height: 1.6;
+    }
+
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.drying {
+    padding: 6rem 0;
+    color: #fff8ed;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url('../assets/lot_of_cocoa.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.icon {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: currentColor;
+    mask: var(--icon) center / contain no-repeat;
+    vertical-align: middle;
+}
+
+.icon-arrow {
+    --icon: url('../assets/arrow.svg');
+}
+
+.previous-arrow {
+    transform: rotate(180deg);
+}
+
+.icon-facebook {
+    --icon: url('../assets/facebook.svg');
+}
+
+.icon-linkedin {
+    --icon: url('../assets/linkedin.svg');
+}
+
+footer {
+    padding: 2rem 1rem;
+    background: #f4ead8;
+    color: #3e2723;
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+    a {
+        padding: 0.75rem;
+        color: inherit;
+
+        &:hover, &:focus-visible {
+            color: #79451f;
+        }
+    }
+}
+
+.photo-preview {
+    display: block;
+    width: calc(100% * 2 / 3);
+    max-width: 600px;
+    margin: 1rem auto;
+    padding: 0;
+    border: 0;
+    cursor: zoom-in;
+}
+
+.photo-preview img, #people-modal img {
+    display: block;
+    width: 100%;
+}
+
+#people-modal {
+    box-sizing: border-box;
+    width: 900px;
+    max-width: 90vw;
+    max-height: 90vh;
+    padding: 1.5rem;
+    border: 0;
+    background: #fff8ed;
+    color: #3e2723;
+
+    &::backdrop {
+        background: rgba(0, 0, 0, 0.7);
+    }
+
+    form {
+        text-align: right;
+    }
+
+    button {
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+    }
+
+    p {
+        line-height: 1.6;
+    }
+}
+
+h2[id] {
+    scroll-margin-top: 7rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    nav {
+        transition: none;
+    }
+}
